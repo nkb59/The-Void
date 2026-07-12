@@ -378,7 +378,7 @@
         </label>
         <input type="file" id="localFile01" accept="audio/*" onchange="loadLocalAudio(this,'player01')">
         <span>·</span>
-        <span>Runtime: add once recorded</span>
+        <span>Runtime: 13:14</span>
       </div>
 
       <details class="notes">
@@ -436,7 +436,9 @@
 <script>
   function showSection(name){
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+    if(event && event.currentTarget) {
+      event.currentTarget.classList.add('active');
+    }
     const target = document.getElementById(name === 'episodes' ? 'episode-list' : name);
     target.scrollIntoView({behavior:'smooth', block:'start'});
   }
